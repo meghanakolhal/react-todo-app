@@ -1,5 +1,10 @@
 // eslint-disable-next-line react/prop-types
-const Input = ({ inputChangeHandler, inputVal, keyDownHandler }) => {
+const Input = ({
+  inputChangeHandler,
+  inputVal,
+  keyDownHandler,
+  placeholder,
+}) => {
   const inputHandler = (e) => {
     inputChangeHandler(e.target.value);
   };
@@ -9,6 +14,7 @@ const Input = ({ inputChangeHandler, inputVal, keyDownHandler }) => {
       onChange={inputHandler}
       value={inputVal}
       onKeyUp={keyDownHandler}
+      placeholder={placeholder}
     />
   );
 };

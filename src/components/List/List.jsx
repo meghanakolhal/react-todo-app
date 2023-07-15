@@ -121,7 +121,7 @@ const List = ({
   return (
     <>
       <div style={{ marginTop: "15px" }}>
-        <Input inputChangeHandler={searchHandler} />
+        <Input inputChangeHandler={searchHandler} placeholder='Search' />
       </div>
       <div className={styles.listContainer}>
         <ul className={styles.list}>{listItems}</ul>
