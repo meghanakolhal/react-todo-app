@@ -23,6 +23,7 @@ const TodoList = () => {
           editingItem: trimText,
           isDone: false,
           isEditing: false,
+          id:list.length
         },
       ]);
       setInpVal("");

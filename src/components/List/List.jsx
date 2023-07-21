@@ -36,7 +36,7 @@ const List = ({
               btnLabel={"Edit"}
               className={styles.itemBtn}
               btnClickHandler={() => {
-                editItemListener(index);
+                editItemListener(task.id);
               }}
               isDisabled={task.isDone}
             />
@@ -47,14 +47,14 @@ const List = ({
             <Input
               inputVal={task.editingItem}
               inputChangeHandler={(e) => {
-                itemListChangeHandler(index, e);
+                itemListChangeHandler(task.id, e);
               }}
             />
             <AppButton
               btnLabel={"Save"}
               className={styles.itemBtn}
               btnClickHandler={() => {
-                saveItemListener(index);
+                saveItemListener(task.id);
               }}
               isDisabled={task.editingItem.trim().length === 0}
             />
@@ -62,7 +62,7 @@ const List = ({
               btnLabel={"Cancel"}
               className={styles.itemBtn}
               btnClickHandler={() => {
-                cancelItemListener(index);
+                cancelItemListener(task.id);
               }}
             />
           </>
