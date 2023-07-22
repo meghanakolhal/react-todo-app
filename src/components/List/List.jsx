@@ -22,7 +22,9 @@ const List = ({
     setSearchItem(e.toLowerCase().trim());
   };
   // eslint-disable-next-line react/prop-types
-  const searchedItem = tasks.filter((task) => task.item.toLowerCase().trim().startsWith(searchItem));
+  const searchedItem = tasks.filter((task) =>
+    task.item.toLowerCase().trim().startsWith(searchItem)
+  );
   // console.log(searchedItem);
 
   // // eslint-disable-next-line react/prop-types
@@ -72,7 +74,7 @@ const List = ({
           btnLabel={"Up"}
           className={styles.itemBtn}
           btnClickHandler={() => {
-            swapItemListener(index, index - 1);
+            swapItemListener(task.id, task.id - 1);
           }}
           isDisabled={index === 0}
         />
@@ -80,10 +82,10 @@ const List = ({
           btnLabel={"Down"}
           className={styles.itemBtn}
           btnClickHandler={() => {
-            swapItemListener(index, index + 1);
+            swapItemListener(task.id, task.id + 1);
           }}
           // eslint-disable-next-line react/prop-types
-          isDisabled={index === tasks.length - 1}
+          isDisabled={task.id === tasks.length - 1}
         />
         {!task.isDone && (
           <>
@@ -91,7 +93,7 @@ const List = ({
               btnLabel={"Done"}
               className={styles.itemBtn}
               btnClickHandler={() => {
-                isDoneHandler(index);
+                isDoneHandler(task.id);
               }}
             />
           </>
@@ -110,7 +112,7 @@ const List = ({
               modalBody="Are you sure, You want to delete this item?"
               modalTitle="Delete"
               btnClickHandler={() => {
-                dltHandler(index);
+                dltHandler(task.id);
               }}
             />
           </>
@@ -121,7 +123,7 @@ const List = ({
   return (
     <>
       <div style={{ marginTop: "15px" }}>
-        <Input inputChangeHandler={searchHandler} placeholder='Search' />
+        <Input inputChangeHandler={searchHandler} placeholder="Search" />
       </div>
       <div className={styles.listContainer}>
         <ul className={styles.list}>{listItems}</ul>

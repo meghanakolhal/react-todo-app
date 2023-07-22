@@ -23,7 +23,7 @@ const TodoList = () => {
           editingItem: trimText,
           isDone: false,
           isEditing: false,
-          id:list.length
+          id:list.length,
         },
       ]);
       setInpVal("");
@@ -76,9 +76,9 @@ const TodoList = () => {
     setList([]);
     // }
   };
-  const editItemListener = (index) => {
+  const editItemListener = (id) => {
     const items = [...list];
-    items[index].isEditing = true;
+    items[id].isEditing = true;
     setList(items);
   };
   const itemListChangeHandler = (index, value) => {
