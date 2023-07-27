@@ -4,6 +4,7 @@ const Input = ({
   inputVal,
   keyDownHandler,
   placeholder,
+  className
 }) => {
   const inputHandler = (e) => {
     inputChangeHandler(e.target.value);
@@ -15,6 +16,7 @@ const Input = ({
       value={inputVal}
       onKeyUp={keyDownHandler}
       placeholder={placeholder}
+      className={className}
     />
   );
 };

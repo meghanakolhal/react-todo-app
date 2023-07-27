@@ -1,5 +1,8 @@
 .itemBtn {
     margin: 10px 10px;
+    border-radius: 4px;
+        width: 4em;
+        height: 2em;
 }
 
 .listContainer {
@@ -7,5 +10,21 @@
 }
 
 .itemDoneStyle {
+border-radius: 6px;
     background: rgb(132, 230, 132);
+    padding: 4px;
+}
+.listBox{
+    border: 2px solid grey;
+    margin:1em;
+    width: 28em;
+    border-radius: 6px;
+    padding: 4px;
+}
+.inp{
+    margin-left: 10px;
+    border: 2px solid grey;
+    border-radius: 6px;
+    height: 2.1em;
+    padding: 4px;
 }

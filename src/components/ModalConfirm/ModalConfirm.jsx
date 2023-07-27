@@ -9,6 +9,7 @@ function ModalConfirm({
   modalBody,
   btnClickHandler,
   isDisabled,
+  className
 }) {
   const [show, setShow] = useState(false);
 
@@ -21,7 +22,7 @@ function ModalConfirm({
   console.log("changed");
   return (
     <>
-      <button disabled={isDisabled} onClick={handleShow}>
+      <button className={className} disabled={isDisabled} onClick={handleShow}>
         {btnName}
       </button>
 

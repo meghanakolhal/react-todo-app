@@ -60,6 +60,7 @@ const TodoList = () => {
   };
   const isDoneHandler = (index) => {
     const items = [...list];
+    console.log(index);
     items[index].isDone = true;
     setList(items);
   };
@@ -123,6 +124,7 @@ const TodoList = () => {
           btnLabel={"Add to List"}
           btnClickHandler={btnClickHandler}
           isDisabled={inpVal.trim().length === 0}
+          className={styles.addToList}
         />
         {/* <AppButton
           btnLabel={"Clear All"}
