@@ -19,7 +19,7 @@ function ModalConfirm({
     btnClickHandler();
     handleClose();
   };
-  console.log("changed");
+ 
   return (
     <>
       <button className={className} disabled={isDisabled} onClick={handleShow}>

@@ -1,8 +1,8 @@
 .itemBtn {
     margin: 10px 10px;
     border-radius: 4px;
-        width: 4em;
-        height: 2em;
+    width: 4em;
+    height: 2em;
 }
 
 .listContainer {
@@ -10,21 +10,42 @@
 }
 
 .itemDoneStyle {
-border-radius: 6px;
+    border-radius: 6px;
     background: rgb(132, 230, 132);
     padding: 4px;
 }
-.listBox{
+
+.listBox {
     border: 2px solid grey;
-    margin:1em;
-    width: 28em;
+    margin: 1em;
     border-radius: 6px;
     padding: 4px;
 }
-.inp{
+
+.inp {
     margin-left: 10px;
     border: 2px solid grey;
     border-radius: 6px;
     height: 2.1em;
     padding: 4px;
+}
+
+.listDiv {
+    margin-top: 15px;
+}
+
+.listItemStyle {
+    margin: 0 5em 0 0.3em;
+    margin-right: 5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .itemBtn {
+        margin: 2px 2px;
+        border-radius: 3px;
+        width: 2.5em;
+        height: 1.5em;
+        font-size: 13px;
+        padding: 0px 40px 19px 2px;
+    }
 }

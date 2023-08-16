@@ -26,19 +26,22 @@ const List = ({
   const searchedItem = tasks.filter((task) =>
     task.item.toLowerCase().trim().startsWith(searchItem)
   );
+  
   // console.log(searchedItem);
 
   // // eslint-disable-next-line react/prop-types
   const listItems = searchedItem.map((task, index) => {
     return (
       <div key={index} className={styles.listBox}>
-        <li className={task.isDone ? styles.itemDoneStyle : " "}>
-          {task.item}
+        <div className={task.isDone ? styles.itemDoneStyle : " "}>
+          <span className={styles.listItemStyle} >{task.item} </span>
+
           {!task.isEditing && (
             <>
               <Button
                 btnLabel={"Edit"}
                 className={styles.itemBtn}
+                style={{ marginLeft: "13em" }}
                 btnClickHandler={() => {
                   editItemListener(task.id);
                 }}
@@ -49,7 +52,7 @@ const List = ({
           {task.isEditing && (
             <>
               <Input
-              className={styles.inp}
+                className={styles.inp}
                 inputVal={task.editingItem}
                 inputChangeHandler={(e) => {
                   itemListChangeHandler(task.id, e);
@@ -58,9 +61,7 @@ const List = ({
               <AppButton
                 btnLabel={"Save"}
                 className={styles.itemBtn}
-                btnClickHandler={() => {
-                  saveItemListener(task.id);
-                }}
+                btnClickHandler={() => saveItemListener(task.id)}
                 isDisabled={task.editingItem.trim().length === 0}
               />
               <AppButton
@@ -77,7 +78,7 @@ const List = ({
             btnLabel={"Up"}
             className={styles.itemBtn}
             btnClickHandler={() => {
-              swapItemListener(index, index - 1);
+              swapItemListener(task.id, task.id - 1);
             }}
             isDisabled={index === 0 || searchItem.length}
           />
@@ -85,10 +86,10 @@ const List = ({
             btnLabel={"Down"}
             className={styles.itemBtn}
             btnClickHandler={() => {
-              swapItemListener(index, index + 1);
+              swapItemListener(task.id, task.id + 1);
             }}
             // eslint-disable-next-line react/prop-types
-            isDisabled={task.id === tasks.length || searchItem.length}
+            isDisabled={task.id === tasks.length - 1 || searchItem.length}
           />
           {!task.isDone && (
             <>
@@ -96,8 +97,9 @@ const List = ({
                 btnLabel={"Done"}
                 className={styles.itemBtn}
                 btnClickHandler={() => {
-                  isDoneHandler(index);
+                  isDoneHandler(task.id);
                 }}
+                // isDisabled={searchItem.length}
               />
             </>
           )}
@@ -118,18 +120,18 @@ const List = ({
                 btnClickHandler={() => {
                   dltHandler(task.id);
                 }}
-                isDisabled={searchItem.length}
+                // isDisabled={searchItem.length}
               />
             </>
           )}
-        </li>
+        </div>
       </div>
     );
   });
   return (
     <>
-      <div style={{ marginTop: "15px" }}>
-        <Input inputChangeHandler={searchHandler} placeholder="Search" />
+      <div className={styles.listDiv}>
+        <Input inputChangeHandler={searchHandler} placeholder="Search"  />
       </div>
       <div className={styles.listContainer}>
         <ul className={styles.list}>{listItems}</ul>

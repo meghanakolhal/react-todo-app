@@ -56,19 +56,29 @@ const TodoList = () => {
       items[finalIndex],
       items[initialIndex],
     ];
+     items.map((ele, index) => {
+       console.log(index, "index");
+       ele.id = index;
+     });
     setList(items);
   };
   const isDoneHandler = (index) => {
     const items = [...list];
-    console.log(index);
+    // console.log(index);
     items[index].isDone = true;
     setList(items);
   };
 
-  const dltHandler = (index) => {
+const dltHandler = (index) => {
+
     const items = [...list];
     items.splice(index, 1);
+    items.map((ele,index)=>{
+      console.log(index,'index')
+     ele.id = index;
+    })
     setList(items);
+  
   };
 
   const clearAllhandler = () => {
@@ -114,17 +124,19 @@ const TodoList = () => {
   
   return (
     <div className={styles.todoContainer}>
-      <div>
+      <div className={styles.upperBox}>
         <Input
           inputChangeHandler={inputChangeHandler}
           inputVal={inpVal}
           keyDownHandler={inpKeyChangeHandler}
+         className={styles.addMargin}
         />
         <AppButton
           btnLabel={"Add to List"}
           btnClickHandler={btnClickHandler}
           isDisabled={inpVal.trim().length === 0}
           className={styles.addToList}
+
         />
         {/* <AppButton
           btnLabel={"Clear All"}
@@ -137,6 +149,7 @@ const TodoList = () => {
           modalTitle="Clear all"
           btnClickHandler={clearAllhandler}
           isDisabled={list.length === 0}
+          className={styles.addMargin}
         />
 
         {/* <AppButton
